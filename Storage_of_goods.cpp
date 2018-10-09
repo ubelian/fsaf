@@ -1,6 +1,6 @@
 #include "Storage_of_goods.h"
 
-//Добавление нового товара
+//Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ С‚РѕРІР°СЂР°
 void Storage_of_goods::pushGoods(std::string _articul, std::string _vendor, std::string _name_of_goods, int _price) {
 	Goods newGoods = {};
 	newGoods.articul = _articul;
@@ -9,20 +9,20 @@ void Storage_of_goods::pushGoods(std::string _articul, std::string _vendor, std:
 	newGoods.price = _price;
 	goods_storage.push_back(newGoods);
 }
-//Получить товар по артикулу
+//РџРѕР»СѓС‡РёС‚СЊ С‚РѕРІР°СЂ РїРѕ Р°СЂС‚РёРєСѓР»Сѓ
 Goods *Storage_of_goods::getGoodsArticul(const std::string &_articul) {
-	//Поиск в контейнере товара по артикулу. В случае успеха вернуть указатель на Goods
+	//РџРѕРёСЃРє РІ РєРѕРЅС‚РµР№РЅРµСЂРµ С‚РѕРІР°СЂР° РїРѕ Р°СЂС‚РёРєСѓР»Сѓ. Р’ СЃР»СѓС‡Р°Рµ СѓСЃРїРµС…Р° РІРµСЂРЅСѓС‚СЊ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Goods
 	for (size_t i = 0; i < goods_storage.size(); i++) {
 		if (goods_storage.at(i).articul == _articul)
 			return &goods_storage.at(i);
 	}
-	//Если требуемого товара нет, вернуть nullptr
+	//Р•СЃР»Рё С‚СЂРµР±СѓРµРјРѕРіРѕ С‚РѕРІР°СЂР° РЅРµС‚, РІРµСЂРЅСѓС‚СЊ nullptr
 	return nullptr;
 }
-//Получить набор товаров по производителю
-//Если в контейнере нет товаров, то контейнер вернется пустым
+//РџРѕР»СѓС‡РёС‚СЊ РЅР°Р±РѕСЂ С‚РѕРІР°СЂРѕРІ РїРѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЋ
+//Р•СЃР»Рё РІ РєРѕРЅС‚РµР№РЅРµСЂРµ РЅРµС‚ С‚РѕРІР°СЂРѕРІ, С‚Рѕ РєРѕРЅС‚РµР№РЅРµСЂ РІРµСЂРЅРµС‚СЃСЏ РїСѓСЃС‚С‹Рј
 std::vector<Goods> Storage_of_goods::getGoodsSet(const std::string &_vendor) {
-	//Поиск в контейнере товаров по производителю(vendor)
+	//РџРѕРёСЃРє РІ РєРѕРЅС‚РµР№РЅРµСЂРµ С‚РѕРІР°СЂРѕРІ РїРѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЋ(vendor)
 	std::vector<Goods> returnedVector;
 	for (size_t i = 0; i < goods_storage.size(); i++) {
 		if (goods_storage.at(i).vendor == _vendor) {
@@ -32,7 +32,7 @@ std::vector<Goods> Storage_of_goods::getGoodsSet(const std::string &_vendor) {
 	return returnedVector;
 }
 
-/*Конструкторы и деструкторы по умолчанию*/
+/*РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹ Рё РґРµСЃС‚СЂСѓРєС‚РѕСЂС‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ*/
 Storage_of_goods::Storage_of_goods(){
 	
 }
